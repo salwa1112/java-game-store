@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <h:outputStylesheet>
+        * {
+            font-size: 1rem;
+        }
+    </h:outputStylesheet>
+</h:head>
+<h:body>
+
+    <h:form>
+        <p:dataTable id="games" var="currentGame" value="#{gameBean.games}" rowKey="#{currentGame.id}"
+                     selectionMode="single" allowUnsorting="true" sortMode="multiple">
+            <f:facet name="header">
+                Games list
+            </f:facet>
+            <p:column field="name" headerText="Name" filterable="false"/>
+            >
+            <p:column field="price" headerText="Price" filterable="false"/>
+
+            <p:column field="quantityStore" headerText="Quantity" filterable="false"/>
+
+            <p:column field="producerCompany" headerText="Product Company" filterable="false"/>
+
+            <p:column headerText="">
+<!--                <h:commandLink value="Delete Game" style="color: blueviolet;font-weight: bold" action="#{gameBean.removeGame(currentGame.id)}">-->
+<!--                    <p:commandButton style="margin: 2em" type="submit" actionListener="#{gameBean.removeGame}"&ndash;&gt;-->
+<!--                                    value="Delete Game" ajax="false" validateClient="true"&ndash;&gt;-->
+<!--                                   icon="pi pi-check" iconPos="right"/>&ndash;&gt;-->
+<!--                    <f:ajax execute="this" render="games"/>-->
+<!--                </h:commandLink >-->
+            </p:column>
+        </p:dataTable>
+    </h:form>
+
+    <p:divider/>
+
+    <h:form>
+        <span class="p-mr-2 ui-float-label" style="margin-top: 2em">
+            <p:inputText id="name" type="text" value="#{gameBean.name}"/>
+            <p:outputLabel for="name" value="Game name"/>
+            <p:message for="name" style="color: red" />
+        </span>
+
+        <span class="p-mr-2 ui-float-label" style="margin-top: 2em">
+            <p:inputText id="price" type="number" value="#{gameBean.price}"/>
+            <p:outputLabel for="price" value="Price"/>
+            <p:message for="price" style="color: red" />
+        </span>
+
+        <span class="p-mr-2 ui-float-label" style="margin-top: 2em" >
+            <p:inputText id="quantity" type="number" value="#{gameBean.quantityStore}"/>
+            <p:outputLabel for="quantity" value="Quantity"/>
+            <p:message for="quantity" style="color: red" />
+        </span>
+
+        <span class="p-mr-2 ui-float-label" style="margin-top: 2em">
+
+               <p:selectOneMenu id="option" value="#{gameBean.producerCompany}" required="true" requiredMessage="You must seleted one">
+                    <f:selectItem itemLabel="Select Company" noSelectionOption="true"/>
+                    <f:selectItem itemLabel="Ubisoft" itemValue="Ubisoft"/>
+                    <f:selectItem itemLabel="Bethesda" itemValue="Bethesda"/>
+                    <f:selectItem itemLabel="NaughtyDog" itemValue="NaughtyDog"/>
+                </p:selectOneMenu>
+            <h:message for="option" style="color: #ff0000" />
+
+        </span>
+        <h:commandButton value="Add Game" action="#{gameBean.addGame}"  style="margin-top: 1em;background-color: palevioletred;color: black;border-radius: 8px; width: 100px; height: 45px; font-size: 30px" >
+
+        </h:commandButton>
+
+    </h:form>
+</h:body>
+</html>

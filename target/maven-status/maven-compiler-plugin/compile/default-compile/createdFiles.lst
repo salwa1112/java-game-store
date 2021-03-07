@@ -1,0 +1,12 @@
+com\salwa\AddEvent.class
+com\salwa\alternatives\WitcherAnnouncer.class
+com\salwa\DeleteEvent.class
+com\salwa\interceptor\Logged.class
+com\salwa\alternatives\KidWitcherAnnouncer.class
+com\salwa\model\Game.class
+com\salwa\interceptor\LoggedInterceptor.class
+com\salwa\alternatives\AdultWitcherAnnouncer.class
+com\salwa\GameBean.class
+com\salwa\GameManage.class
+com\salwa\GameStoreManagementService.class
+com\salwa\model\ProducerCompany.class
